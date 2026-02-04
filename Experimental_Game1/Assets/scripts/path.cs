@@ -20,6 +20,7 @@ public class path : MonoBehaviour
     {
         if(pointIndex <= Point.Length - 1)
         {
+            Debug.Log("run");
             transform.position = Vector2.MoveTowards(transform.position, Point[pointIndex].transform.position, moveSpeed * Time.deltaTime);
 
             if(transform.position == Point[pointIndex].transform.position)

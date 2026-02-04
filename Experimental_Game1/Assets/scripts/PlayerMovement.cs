@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 1f;
+
+
     
 
       // Update is called once per frame
@@ -18,13 +20,13 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(movement, Space.World);
 
 
-            //float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(0,0, angle);
+            
 
 
 
         }
 
+     
 
 
     }
