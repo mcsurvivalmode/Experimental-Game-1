@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //move the character 
-        transform.Translate(Input.GetAxis("Horizontal")* 10f * Time.deltaTime, 0f, 0f );
+        transform.Translate(Input.GetAxis("Horizontal")* 3f * Time.deltaTime, 0f, 0f );
 
         //flip the character 
         Vector2 characterScale = transform.localScale;
