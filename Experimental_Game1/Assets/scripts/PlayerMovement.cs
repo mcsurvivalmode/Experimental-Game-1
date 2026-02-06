@@ -1,35 +1,34 @@
 using System.Collections;
-
+using System.Collections.Generic; 
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed = 1f;
 
-
-    
-
-      // Update is called once per frame
     void Update()
     {
-        Vector2 input = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
+        //move the character 
+        transform.Translate(Input.GetAxis("Horizontal")* 10f * Time.deltaTime, 0f, 0f );
 
-        if (input.magnitude > 0 )
+        //flip the character 
+        Vector2 characterScale = transform.localScale;
+        if (Input.GetAxis("Horizontal")< 0)
         {
-            Vector2 movement = input.normalized * (movementSpeed * Time.deltaTime);
-            transform.Translate(movement, Space.World);
-
-
-            
-
-
+            characterScale.x = 1;
 
         }
-
-     
+           if (Input.GetAxis("Horizontal")> 0)
+        {
+            characterScale.x = -1;
+            
+        }
+        transform.localScale = characterScale;
 
 
     }
+    
+
 
     
 
