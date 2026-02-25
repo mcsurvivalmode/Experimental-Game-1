@@ -2902,8 +2902,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: It is hard losing someone, there really isnt anything that makes it easier..
-    But seeing a sign brings comfort. It makes it easier knowing my brother is watching
-    over me in the form of a rubber duck.
+    But seeing a sign from them brings comfort. It makes it easier knowing my brother
+    is watching over me in the form of a rubber duck.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4578,7 +4578,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: fe34855c74066c3489f51a3461d4f964, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.504
+  m_Volume: 0.439
   m_Pitch: 1
   Loop: 1
   Mute: 0
