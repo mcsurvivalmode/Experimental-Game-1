@@ -6,10 +6,10 @@ PhysicsMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: baublePM
+  m_Name: light
   serializedVersion: 2
-  m_DynamicFriction: 0.29
+  m_DynamicFriction: 0
   m_StaticFriction: 0
-  m_Bounciness: 0.94
+  m_Bounciness: 0.66
   m_FrictionCombine: 0
-  m_BounceCombine: 1
+  m_BounceCombine: 0
