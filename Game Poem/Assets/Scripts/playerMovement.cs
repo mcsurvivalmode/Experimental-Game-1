@@ -18,56 +18,70 @@ public class playerMovement : MonoBehaviour
 
 
 		void OnCollisionEnter (Collision col)
-	{
-		//COLLISION
-		if(col.gameObject.name == "bauble" && col.gameObject.GetComponent<counterScript>().isCounted == false)
 		{
-			//if the player hits another bauble AND it hasnt been counted...
+			//COLLISION
+			if(col.gameObject.name == "bauble" && col.gameObject.GetComponent<counterScript>().isCounted == false)
+			{
+				//if the player hits another bauble AND it hasnt been counted...
 
-			Instantiate (click); //these are both prefabs
-			Instantiate(Particle);
+				Instantiate (click); //these are both prefabs
+				Instantiate(Particle);
 
-			col.gameObject.GetComponent<Renderer>().material.color = Color.red; //changes the material colour
+				col.gameObject.GetComponent<Renderer>().material.color = Color.red; //changes the material colour
 			 
-			baubleCount++; //adds to the bauble count
+				baubleCount++; //adds to the bauble count
 			
-			col.gameObject.GetComponent<counterScript> ().isCounted = true; //makes sure the baubles are only counted once
+				col.gameObject.GetComponent<counterScript> ().isCounted = true; //makes sure the baubles are only counted once
 		
-			setCountText (col.gameObject.name);
-			complete(); //calls the text function
+				setCountText (col.gameObject.name);
+				complete(); //calls the text function
+			}
+			else if(col.gameObject.name == "bauble")
+			{
+				//if the player hits another bauble...
+				Instantiate (click);
+				Instantiate (Particle, transform.position, Quaternion.identity); //spawns the particle effect where the player is 
+			}
+
+
 		}
-		else if(col.gameObject.name == "bauble")
-        {
-			//if the player hits another bauble...
-            Instantiate (click);
-			Instantiate (Particle, transform.position, Quaternion.identity); //spawns the particle effect where the player is 
-        }
 
-
-	}
-
-		void Update()
+    private void Start()
     {
-        //RESTART
-		//if player presses R the scene reloads!
-		if(Input.GetKeyDown(KeyCode.R))
-		{
-			Application.LoadLevel(Application.loadedLevel);
-		}
+		rb = GetComponent<Rigidbody>();
     }
 
-    	void FixedUpdate () 
+    void Update()
+    {
+        //MOVEMENT 
+        //this gets the horizontal and vertical axis
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+
+        rb.AddForce(movement * speed); // adding force to the rigid body by multipling the movement and speed 
+
+        //JUMP
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //rb.AddForce(Vector3.up * jumpforce);
+        //}
+    }
+
+    void FixedUpdate () 
 	{
 		
 		//MOVEMENT 
 		//this gets the horizontal and vertical axis
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		//float moveHorizontal = Input.GetAxis ("Horizontal");
+		//float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		//Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
 
-		rb.AddForce (movement * speed); // adding force to the rigid body by multipling the movement and speed 
+		//rb.AddForce(movement * speed); // adding force to the rigid body by multipling the movement and speed 
 
 		//JUMP
 		//if (Input.GetKeyDown(KeyCode.Space))
