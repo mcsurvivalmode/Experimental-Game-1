@@ -15,18 +15,6 @@ public class playerMovement : MonoBehaviour
 		public TMP_Text baubleCountText; //displays the amount of baubles hit 
 		public TMP_Text completeText; // empty text on canvas that the script fills in 
 
-        void Start()
-	{
-		//PHYSICS MATERIAL
-		rb = GetComponent<Rigidbody> ();
-		PhysicsMaterial rubber = new PhysicsMaterial ("playerMat");
-		rubber.bounciness = 1.0f;
-		// friction when not moving 
-		rubber.staticFriction = 0.2f;
-		// friction when moving
-		rubber.dynamicFriction = 0.2f;
-		GetComponent<SphereCollider> ().material = rubber;
-	}
 
 
 		void OnCollisionEnter (Collision col)
