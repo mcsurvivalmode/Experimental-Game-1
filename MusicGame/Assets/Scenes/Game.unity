@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f250c8467908774f9bf7fb8bf0dd4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 5
+  moveSpeed: 10
   sceneToLoad: Title
   healthText: {fileID: 71978346}
 --- !u!320 &93733781
