@@ -9,7 +9,7 @@ public class playerMovement : MonoBehaviour
 
     //public float moveSpeed;
     //float speedX, speedY;
-    int Health = 5;
+    int Health = 0;
     public string sceneToLoad;
 
     public TMP_Text healthText;
@@ -36,9 +36,9 @@ public class playerMovement : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D col)
     {
-        Health--;
+        Health++;
         Debug.Log("HIT");
-        healthText.text = "Health: " + Health.ToString ();
+        healthText.text = "HITS: " + Health.ToString ();
 
     }
 
