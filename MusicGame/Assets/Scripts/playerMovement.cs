@@ -13,6 +13,8 @@ public class playerMovement : MonoBehaviour
     public string sceneToLoad;
 
     public TMP_Text healthText;
+    public TMP_Text ScoreText;
+    public GameObject Particle;
     //Rigidbody2D rb;
     [SerializeField]
     private float maxSpeed = 10f;
@@ -39,6 +41,8 @@ public class playerMovement : MonoBehaviour
         Health++;
         Debug.Log("HIT");
         healthText.text = "HITS: " + Health.ToString ();
+        ScoreText.text = "YOU SCORED: " + Health.ToString ();
+        Instantiate (Particle, transform.position, Quaternion.identity);
 
     }
 
