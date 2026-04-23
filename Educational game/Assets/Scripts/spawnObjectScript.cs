@@ -6,6 +6,7 @@ public class spawnObjectScript : MonoBehaviour
     public float speed;
 
     private GameManagerScript gm;
+    private float timer;
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManagerScript").GetComponent<GameManagerScript>();
@@ -16,7 +17,11 @@ public class spawnObjectScript : MonoBehaviour
  
     void Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer >30)
+        {
+            Destroy(gameObject);
+        }
 
 
         rb.linearVelocity = Vector2.left * (speed * gm.speedMultiplier); 

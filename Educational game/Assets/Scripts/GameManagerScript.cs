@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class GameManagerScript : MonoBehaviour
     public float speedMultiplier; 
 
     public GameObject spawnObject;
+
+    public Text distanceUI;
+    private float distance; 
+
     void Start()
     {
         
@@ -17,7 +23,10 @@ public class GameManagerScript : MonoBehaviour
 
     void Update()
     {
-        speedMultiplier += Time.deltaTime * 0.1f; 
+        distanceUI.text = "Score: " + distance.ToString("F2");
+        distance += Time.deltaTime * 0.8f; 
+        
+        speedMultiplier += Time.deltaTime * 0.01f; 
 
         timer += Time.deltaTime;
 
