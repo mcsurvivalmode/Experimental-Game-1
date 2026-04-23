@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -39,5 +40,13 @@ public class playerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("enemy"))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
 }
