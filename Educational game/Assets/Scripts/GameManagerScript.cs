@@ -26,7 +26,7 @@ public class GameManagerScript : MonoBehaviour
         distanceUI.text = "Score: " + distance.ToString("F2");
         distance += Time.deltaTime * 0.8f; 
         
-        speedMultiplier += Time.deltaTime * 0.01f; 
+        speedMultiplier += Time.deltaTime * 0.1f; 
 
         timer += Time.deltaTime;
 
