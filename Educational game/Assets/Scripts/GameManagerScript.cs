@@ -10,7 +10,7 @@ public class GameManagerScript : MonoBehaviour
 
     public float speedMultiplier; 
 
-    public GameObject spawnObject;
+    public GameObject[] spawnObject;
 
     public Text distanceUI;
     private float distance; 
@@ -34,7 +34,7 @@ public class GameManagerScript : MonoBehaviour
         {
             timer = 0;
             int randNum = Random.Range(0, 3);
-            Instantiate(spawnObject, spawnPoints[randNum].transform.position, Quaternion.identity);
+            Instantiate(spawnObject[randNum], spawnPoints[randNum].transform.position, Quaternion.identity);
 
         }
     }
