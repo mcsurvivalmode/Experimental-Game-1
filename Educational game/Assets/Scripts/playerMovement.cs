@@ -6,6 +6,8 @@ public class playerMovement : MonoBehaviour
     public float jump;
     private Rigidbody2D rb;
     private bool isGrounded;
+    private AudioSource source; 
+    public AudioClip JumpSound;
 
 
     private void Awake()
@@ -14,7 +16,7 @@ public class playerMovement : MonoBehaviour
     }
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();
     }
 
     
@@ -23,6 +25,8 @@ public class playerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector2.up * jump);
+
+            source.PlayOneShot(JumpSound, 1.0f);
 
         }
     }
