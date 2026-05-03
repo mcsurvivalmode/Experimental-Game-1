@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class playerMovement : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class playerMovement : MonoBehaviour
     private bool isGrounded;
     private AudioSource source; 
     public AudioClip JumpSound;
+    private int lives; 
+    public Text livesUI;
 
 
     private void Awake()
@@ -16,18 +20,26 @@ public class playerMovement : MonoBehaviour
     }
     void Start()
     {
+        lives = 100; 
         source = GetComponent<AudioSource>();
     }
 
     
     void Update()
     {
+        livesUI.text = "Health: " + lives.ToString("F2");
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector2.up * jump);
 
             source.PlayOneShot(JumpSound, 1.0f);
 
+        }
+
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(0);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -36,6 +48,8 @@ public class playerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+
+    
     }
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -49,7 +63,8 @@ public class playerMovement : MonoBehaviour
     {
         if(other.gameObject.CompareTag("enemy"))
         {
-            SceneManager.LoadScene(0);
+            lives =-1; 
+            //SceneManager.LoadScene(0);
         }
     }
 
