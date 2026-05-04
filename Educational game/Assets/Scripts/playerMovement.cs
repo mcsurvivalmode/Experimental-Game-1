@@ -10,8 +10,11 @@ public class playerMovement : MonoBehaviour
     private bool isGrounded;
     private AudioSource source; 
     public AudioClip JumpSound;
+   
     private int lives; 
     public Text livesUI;
+
+    public ParticleSystem walking;
 
 
     private void Awake()
@@ -37,16 +40,17 @@ public class playerMovement : MonoBehaviour
 
         }
 
-        if (lives <= 0)
-        {
-            SceneManager.LoadScene(0);
-        }
+        //if (lives <= 0)
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            walking.Play();
         }
 
     
@@ -56,16 +60,18 @@ public class playerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            walking.Stop();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("enemy"))
-        {
-            lives =-1; 
-            //SceneManager.LoadScene(0);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+        //if(other.gameObject.CompareTag("enemy"))
+        //{
+          //  lives =-1; 
+          
+        //    SceneManager.LoadScene(0);
+      //  }
+    //}
 
 }

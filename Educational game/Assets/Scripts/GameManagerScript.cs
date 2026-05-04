@@ -34,7 +34,8 @@ public class GameManagerScript : MonoBehaviour
         {
             timer = 0;
             int randNum = Random.Range(0, 3);
-            Instantiate(spawnObject[randNum], spawnPoints[randNum].transform.position, Quaternion.identity);
+            int randNum2 = Random.Range(0, 4);
+            Instantiate(spawnObject[randNum2], spawnPoints[randNum].transform.position, Quaternion.identity);
 
         }
     }
