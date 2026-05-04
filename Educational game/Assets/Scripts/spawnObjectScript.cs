@@ -18,7 +18,7 @@ public class spawnObjectScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >30)
+        if (timer >90)
         {
             Destroy(gameObject);
         }
